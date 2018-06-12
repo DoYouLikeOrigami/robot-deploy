@@ -1,0 +1,25 @@
+extends layouts/main
+
+block title
+	title Как приручить робота
+
+block content
+	section.main
+		.main__wrap
+			h1.main__title Выбери уровень
+			nav.main-nav
+				ul.main-nav__list
+					li.main-nav__item
+						a(href="/level/1").main-nav__link
+							img(src="/Template/img/1.jpg").main-nav__img
+							p.main-nav__text Уровень 1
+
+					li.main-nav__item
+						a(href="/level/2").main-nav__link
+							img(src="/Template/img/2.jpg").main-nav__img
+							p.main-nav__text Уровень 2
+
+					li.main-nav__item
+						a(href="/level/3").main-nav__link
+							img(src="/Template/img/3.jpg").main-nav__img
+							p.main-nav__text Уровень 3

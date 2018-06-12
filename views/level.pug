@@ -1,0 +1,64 @@
+extends layouts/main
+
+block title
+	title Уровень ##{id}
+
+block content
+	header.main-header
+		.main-header__wrap
+			div
+				a.btn(href="/") На главную
+
+			div
+				a.btn.btn--akcent.js--run-btn(href="#") Запустить робота
+				a.btn.btn--danger.js--constructor-clear(href="#") Очистить алгоритм
+
+	.wrap
+
+		.wrap__left
+			.canvas
+				.canvas__info
+					.canvas__info-block
+						img.canvas__info-icon(src="/Template/img/target.svg" width="15")
+						span.canvas__info-text.js--info-write-targets -
+
+					.canvas__info-block
+						img.canvas__info-icon(src="/Template/img/energy.svg" width="15")
+						span.canvas__info-text.js--info-write-energy -
+
+					a.canvas__refresh.js--info-restart(href="#")
+						img(src="/Template/img/refresh.svg" width="30")
+
+				.info-popup.info-popup--corner.js--popup-info
+					p.info-popup__text Текст
+
+				canvas#myCanvas(width="400" height="240")
+
+		.wrap__right
+			.constructor
+				a.constructor-item__btn.constructor-item__btn--add(href="#")
+					span +
+
+	.popup
+		h2 Выбери блок
+		ul.popup__block-list
+			li.popup__block-item
+				a.popup__block-btn.popup__block-btn--blue(href="#" data-type="IF") если
+			li.popup__block-item
+				a.popup__block-btn.popup__block-btn--orange(href="#" data-type="ROBOT") робот
+
+	.info-popup.js--popup-ask
+		h2.info-popup__title Заголовок
+		p.info-popup__text Текст
+		.info-popup__btns
+			a(href="#").btn Кнопка 1
+			a(href="#").btn.js--popup-close Кнопка 2
+
+	.overlay
+	script(src="/Template/js/main.js")
+
+	script
+		| (function() {
+		|		let game = new Game(#{id});
+		|		Compiler.init(game);
+		| })();
